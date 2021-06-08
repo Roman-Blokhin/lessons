@@ -20,7 +20,5 @@ win.resizable (True, True)
 # можно изменить фон окна (bg - background) - цвет можно выбрать на сайте rgb online
 win.config (bg = "#4a8dbd")
 
-
-
 # обязательно делаем этот цикл, чтобы у наспоявился результат программы
 win.mainloop ()
