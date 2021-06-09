@@ -50,7 +50,7 @@ btn_4 = tk.Button (win, text = f'Счетчик: {count}',
 				command = counter,
 				  bg = 'red',
 				  activebackground = 'blue',
-				  state = tk.DISABLED)
+				  state = tk.NORMAL)
 # выводим кнопку на наше окно
 btn_1.pack ()
 btn_2.pack ()
