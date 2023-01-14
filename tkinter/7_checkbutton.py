@@ -26,6 +26,7 @@ def toggle_all():
 # 6. создаем переменную, чтобы получать значение наших переменных и видеть, нажат ли флажок
 def show():
     print('флажок year: ', year_value.get())
+    print('флажок marketing: ', marketing_value.get())
 
 
 # ---------------------------------------------------- НАШЕ ОКНО
@@ -39,9 +40,9 @@ root.config(bg='')
 # ---------------------------------------------------- 3. ПЕРЕМЕННЫЕ
 
 # создаем переменные, чтобы можно было получать наши данные в консоль
-year_value = StringVar()
+year_value = StringVar()  # строчная
 year_value.set('NO')  # 7. устанавливаем начальное значение флажка
-marketing_value = IntVar()
+marketing_value = IntVar()  # числовая
 
 # ---------------------------------------------------- 1. ВИДЖЕТЫ
 
@@ -52,7 +53,10 @@ year = Checkbutton(text='Вам исполнилось 18 лет?',
                    offvalue='NO')  # атрибут говорит, что кнопка не нажата
 year.pack()
 
-marketing = Checkbutton(text='Хотите получать рекламу?')
+marketing = Checkbutton(text='Хотите получать рекламу?',
+                        variable=marketing_value,
+                        onvalue=1,  # атрибут говорит, что кнопка нажата
+                        offvalue=0)  # атрибут говорит, что кнопка не нажата
 marketing.pack()
 
 subscribe = Checkbutton(text='Готовы подписаться??', indicatoron=False)
