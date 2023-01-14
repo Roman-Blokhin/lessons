@@ -12,6 +12,11 @@ def deselect_all ():
     for i in [year, marketing, subscribe]:
         i.deselect () # ДЕактивирует наши checkbuttons
 
+# Прописываем функцию, чтобы проставить противоположное значение галочек
+def toggle_all ():
+    for i in [year, marketing, subscribe]:
+        i.toggle () # ДЕактивирует наши checkbuttons
+
 root = Tk ()
 root.title ('')
 root.geometry ('350x350+200+200')
@@ -29,5 +34,6 @@ subscribe.pack ()
 
 Button (text = 'Выбрать все галочки', command = select_all).pack ()
 Button (text = 'Снять все галочки', command = deselect_all).pack ()
+Button (text = 'Противоположное значение галочек', command = toggle_all).pack ()
 
 root.mainloop ()
