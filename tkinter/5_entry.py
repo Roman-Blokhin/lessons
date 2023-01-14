@@ -1,65 +1,98 @@
-#Создание виджета Entry
-
-# https://www.youtube.com/watch?v=5C7K5kCxyVM&list=PLQAt0m1f9OHsd6U5okp1XLoYyQR0oBjMM&index=5
+# СОЗДАЕМ ВИДЖЕТ ENTRY - ЭТО ПОЛЕ ДЛЯ ВВОДА
 
 import tkinter as tk
 
-# создали стандартное окно
-win = tk.Tk ()
-win.title ('Виджет Entry')
-win.geometry ('400x500+50+50')
-#####################################################
+# 5. создаем функцию для кнопки, которая будет получать информацию
 
-# создаем функцию для получения информации
-def get_entry ():
-	value = name.get ()
-	if value:
-		print (value)
-	else:
-		print ('Пустой ввод')
-	
-# можно сделать вывод в программу мразу нескольких полей
+def get_login ():
+    value = name.get () # используем метод get, чтобы получить инф. и сохраним в переменную value
+    if value:
+        print (value)
+    else:
+        print ('empty value')
+
+# 10. создаем функцию для получения пароля
+
+def get_password ():
+    value_2 = password.get () # используем метод get, чтобы получить инф. и сохраним в переменную value
+    if value_2:
+        print (value_2)
+    else:
+        print ('empty password')
+
+# 7. создаем функцию для удаления текста в нашем поле ввода Login
+
+def delete_login ():
+    name.delete (0, tk.END) # устанавливаем диапазон удаления, от 0 до конца ('end')
+
+# 13. создаем функцию для удаления текста в нашем поле ввода Password
+
+def delete_password ():
+    password.delete (0, 'end') # устанавливаем диапазон удаления, от 0 до конца ('end')
+
+# 15. создаем функцию для получения данных из всех строк ввода очищения данных
+
 def submit ():
-	print (name.get ())
-	print (password.get ())
-	delete_entry ()
-	password.delete (0, tk.END)
+    print (name.get ())
+    print (password.get ())
+    delete_password ()
+    delete_login ()
 
-# создаем функцию для удаления информации для поля ввода, также прописываем что удалять, в данном случае с нулевого индекса и до конца(весь текст) - можно написать tk.END, а можно 'end'
-def delete_entry ():
-	name.delete (0, tk.END)
+root = tk.Tk ()
+root.geometry ('300x250')
+root.config (bg = 'grey')
 
-#####################################################
+# 1. размещаем виджет в окне, вызывая его через класс Entry, и сразу выводя на экран методом grid
+# сохраним в переменную name
 
-# сщздали текстовый элемент и расположили его в первой строке и первой колонке, прижатым к левой стороне, опубликовали с помощью виджета grid
-tk.Label (win, text = "login:").grid (row = 0, column = 0, stick = 'w')
-tk.Label (win, text = "Password:").grid (row = 1, column = 0, stick = 'w')
+name = tk.Entry (root)
+name.grid (row = 0, column = 1)
 
-# создали переменную, в которую вложили виджет Entry -для ввода данных на экране и вывели его с помощью виджета grid
-name = tk.Entry (win)
-# добавляем св-во - show - чтобы наш пароль был закрыт звездочками
-password = tk.Entry (win, show = '*')
-name.grid(row = 0, column = 1)
-password.grid(row = 1, column = 1)
+# 8. создаем ввод пароля, который будет скрыт
 
-# создаем кнопку для получения информации после ввода, прописываем комманду для получения информации из нашего поля - Entry
-tk.Button (win, text = 'Получить',
-		  command = get_entry).grid(row = 2, column = 0, stick = 'we')
+password = tk.Entry (root, show = '*') # значение show скрывает текст, выбрать нужно символ
+password.grid (row = 2, column = 1)
 
-tk.Button (win, text = 'Войти',
-		  command = submit).grid(row = 3, column = 0, stick = 'we')
+# 3. делаем виджет label - Login
 
-# создаем кнопку для удаления информации из поля ввода
-tk.Button (win, text = 'Удалить', command = delete_entry).grid(row = 2, column = 1, stick = 'we')
-tk.Button (win, text = 'Вставить', command = lambda: name.insert (0, 'hello')).grid(row = 2, column = 2, stick = 'we')
+lbl1 = tk.Label (root, text = 'Login', bg = 'grey', fg = 'white').grid (row = 0, column = 0, stick = 'w')
 
-# есть метод, который позволяет вставлять определенные значения - insert
+# 9. делаем виджет label - Password
 
+lbl2 = tk.Label (root, text = 'Password', bg = 'grey', fg = 'white').grid (row = 2, column = 0, stick = 'w')
 
-# ставим размеры наших колонок
-win.grid_columnconfigure (0, minsize = 50)
-win.grid_columnconfigure (1, minsize = 100)
+# 4. создаем кнопку, которая будет у нас получать информацию Login
 
-#####################################################
+tk.Button (root, text = 'get', bg = 'grey', fg = 'white', command = get_login).grid (row = 1, column = 1, stick = 'we')
 
-win.mainloop ()
+# 11. создаем кнопку, которая будет у нас получать информацию Password
+
+tk.Button (root, text = 'get', bg = 'grey', fg = 'white', command = get_password).grid (row = 3, column = 1, stick = 'we')
+
+# 6. создаем кнопку удаления Login
+
+tk.Button (root, text = 'delete', bg = 'grey', fg = 'white', command = delete_login).grid (row = 1, column = 0, stick = 'we')
+
+# 12. создаем кнопку удаления Password
+
+tk.Button (root, text = 'delete', bg = 'grey', fg = 'white', command = delete_password).grid (row = 3, column = 0, stick = 'we')
+
+# 14. создаем кнопку представоения - Submit, которая выведет у нас все введенные параметры в строки ввода
+
+tk.Button (root, text = 'submit', bg = 'grey', fg = 'white', command = submit).grid (row = 4, column = 0, stick = 'we')
+
+# 7. создаем кнопку вставки заданного значения, без функции, используем сразу lambda, прописываем значение у insert (место вставки, значение)
+
+tk.Button (root, text = 'insert', bg = 'grey', fg = 'white', command = lambda: name.insert (0, 'roma is a hero')).grid (row = 1, column = 2, stick = 'we')
+
+# 16. создаем кнопку, которая будет закрывать наше окно
+
+close_button = tk.Button (root, text = 'Game Over', bg = 'grey', command = lambda : root.destroy ()).grid (row = 5, column = 0, stick = 'w')
+
+# 2. задаем ширину наших колонок
+
+root.grid_columnconfigure (0, minsize = 100)
+root.grid_columnconfigure (1, minsize = 100)
+root.grid_columnconfigure (2, minsize = 50)
+
+root.mainloop ()
