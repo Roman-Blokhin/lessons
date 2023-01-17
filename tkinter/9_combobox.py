@@ -11,6 +11,11 @@ def show_value():
         but.config(fg='white')
 
 
+# функция устанавливает заданное значение
+def set_day():
+    combo.set('Вторник')
+
+
 weekdays = ('Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суббота', 'Воскресенье')
 numbers = [1, 2, 3, 4, 5]
 
@@ -29,5 +34,8 @@ num.pack()
 
 but = Button(text='show_value', bg='green', command=show_value)
 but.pack()
+
+button = Button(text='set_day', command=set_day)
+button.pack()
 
 root.mainloop()
