@@ -14,15 +14,16 @@ def select_level():
     elif level == 3:
         print('Hard')
 
+
 # 11. создаем функцию для вывода информации в нашем окне, а также консоли касательно расы
 def select_spesies():
     spesies_var = spesies.get()
     spesies_text.set(f'Вы выбрали расу: {spesies_var}')  # 8. создаем ф строку для передачи текста нашего label
-    if spesies == 4:
+    if spesies_var == 4:
         print('Эльф')
-    elif spesies == 5:
+    elif spesies_var == 5:
         print('Орк')
-    elif spesies == 6:
+    elif spesies_var == 6:
         print('Человек')
 
 
@@ -67,6 +68,5 @@ Radiobutton(text='Человек', bg='pink', font=('Arial', 15), variable=spesi
 
 # 12. создаем Label, который будет выводить сообщение после выбора расы с атрибутом textvariable
 Label(bg='pink', textvariable=spesies_text).grid(row=5, column=0, columnspan=3, stick='w')
-
 
 root.mainloop()
