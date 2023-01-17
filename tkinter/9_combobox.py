@@ -8,6 +8,8 @@ root.title('Combobox')
 root.geometry('250x250+200+200')
 root.config(bg='grey')
 
-ttk.Combobox(height=5, justify=RIGHT, values=weekdays).pack()
+combo = ttk.Combobox(height=5, justify=RIGHT, values=weekdays)
+combo.current (0) # с помощью current по индексу задаем значение, которое будет отображаться по умолчанию
+combo.pack()
 
 root.mainloop()
