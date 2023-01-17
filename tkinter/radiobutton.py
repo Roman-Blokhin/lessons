@@ -3,6 +3,8 @@
 from tkinter import *
 
 
+# ---------------------------------------------------------------------
+
 # 5. создаем функцию для вывода информации в нашем окне, а также консоли
 def select_level():
     level = level_var.get()
@@ -19,7 +21,7 @@ def select_level():
 def select_spesies():
     spesies_var = spesies.get()
     if spesies_var == 4:
-        spesies_var = 'Эльф' # 12. присваиваем числовой переменной текстовое значение для будущей ф строки
+        spesies_var = 'Эльф'  # 12. присваиваем числовой переменной текстовое значение для будущей ф строки
         print('Эльф')
     elif spesies_var == 5:
         spesies_var = 'Орк'
@@ -30,11 +32,25 @@ def select_spesies():
     spesies_text.set(f'Вы выбрали расу: {spesies_var}')  # 13. создаем ф строку для передачи текста нашего label
 
 
+def select_profession():
+    profession_var = profession.get()
+    profession_text.set(f'Вы выбрали профессию: {profession_var}')
+    if profession_var == 7:
+        print('Воин')
+    elif profession_var == 8:
+        print('Маг')
+    elif profession_var == 9:
+        print('Лучник')
+
+
+# ---------------------------------------------------------------------
 
 root = Tk()
 root.title('Radiobutton')
 root.geometry('290x300+200+200')
 root.config(bg='pink')
+
+# ---------------------------------------------------------------------
 
 # 2. создаем числовую переменную и привязываем ее ко всем нашим radiobuttons
 level_var = IntVar()
@@ -45,6 +61,11 @@ level_text = StringVar()
 spesies = IntVar()
 # 11. создаем переменную, чтобы вывести текст в наше окно касательно расы
 spesies_text = StringVar()
+
+profession = IntVar()
+profession_text = StringVar()
+
+# ---------------------------------------------------------------------
 
 # 1. создаем Label и Radiobuttons
 Label(text='Выберите уровень сложности: ', bg='pink', font=('Arial', 15)).grid(row=0, column=0, columnspan=3)
@@ -61,6 +82,8 @@ Radiobutton(text='Hard', bg='pink', font=('Arial', 15), variable=level_var, valu
 # 6. создаем Label, который будет выводить сообщение после выбора уровня сложности с атрибутом textvariable
 Label(bg='pink', textvariable=level_text).grid(row=2, column=0, columnspan=3, stick='w')
 
+# ---------------------------------------------------------------------
+
 # 9. создаем новую группу radiobuttons
 Label(text='Выберите расу: ', bg='pink', font=('Arial', 15)).grid(row=3, column=0, columnspan=3)
 Radiobutton(text='Эльф', bg='pink', font=('Arial', 15), variable=spesies, value=4, command=select_spesies) \
@@ -72,5 +95,22 @@ Radiobutton(text='Человек', bg='pink', font=('Arial', 15), variable=spesi
 
 # 12. создаем Label, который будет выводить сообщение после выбора расы с атрибутом textvariable
 Label(bg='pink', textvariable=spesies_text).grid(row=5, column=0, columnspan=3, stick='w')
+
+# ---------------------------------------------------------------------
+
+# 13. создаем кнопки для выбора профессии, чтобы показать на примере, как их можно компактно прописать
+
+Label(text='Выберите профессию: ', bg='pink', font=('Arial', 15)).grid(row=6, column=0, columnspan=3)
+
+Radiobutton(text='Воин', bg='pink', font=('Arial', 15), variable=profession, value=7, command=select_profession) \
+    .grid(row=7, column=0)
+Radiobutton(text='Маг', bg='pink', font=('Arial', 15), variable=profession, value=8, command=select_profession) \
+    .grid(row=7, column=1)
+Radiobutton(text='Лучник', bg='pink', font=('Arial', 15), variable=profession, value=9, command=select_profession) \
+    .grid(row=7, column=2)
+
+Label(bg='pink', textvariable=profession_text).grid(row=8, column=0, columnspan=3, stick='w')
+
+# ---------------------------------------------------------------------
 
 root.mainloop()
