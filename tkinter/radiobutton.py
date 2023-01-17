@@ -2,18 +2,15 @@
 
 from tkinter import *
 
-# 5. создаем функции для вывода информации в нашем окне, а также консоли
-def vals_1 ():
-    Label (text = 'Выбран 1 уровень сложности', bg='pink').grid (row=2, column=0, columnspan=3, sticky='w')
-    print ('1 уровень')
-
-def vals_2 ():
-    Label (text = 'Выбран 2 уровень сложности', bg='pink').grid (row=2, column=0, columnspan=3, sticky='w')
-    print ('2 уровень')
-
-def vals_3 ():
-    Label (text = 'Выбран 3 уровень сложности', bg='pink').grid (row=2, column=0, columnspan=3, sticky='w')
-    print ('3 уровень')
+# 5. создаем функцию для вывода информации в нашем окне, а также консоли
+def select_level ():
+    level = level_var.get ()
+    if level == 1:
+        print ('Easy')
+    elif level == 2:
+        print ('Middle')
+    elif level == 3:
+        print ('Hard')
 
 root = Tk()
 root.title('Radiobutton')
@@ -28,11 +25,11 @@ Label(text='Выберите уровень сложности: ', bg='pink', fo
 
 # 3. добавляем атрибут value, чтобы мы могли присвоить значение нашим кнопкам, и они стали нажиматься
 # 4. создаем команду, чтобы понять, какая кнопка нажата
-Radiobutton(text='Easy', bg='pink', font=('Arial', 15), variable=level_var, value=1, command=vals_1)\
+Radiobutton(text='Easy', bg='pink', font=('Arial', 15), variable=level_var, value=1, command=select_level)\
     .grid(row=1, column=0)
-Radiobutton(text='Middle', bg='pink', font=('Arial', 15), variable=level_var, value=2, command=vals_2)\
+Radiobutton(text='Middle', bg='pink', font=('Arial', 15), variable=level_var, value=2, command=select_level)\
     .grid(row=1, column=1)
-Radiobutton(text='Hard', bg='pink', font=('Arial', 15), variable=level_var, value=3, command=vals_3)\
+Radiobutton(text='Hard', bg='pink', font=('Arial', 15), variable=level_var, value=3, command=select_level)\
     .grid(row=1, column=2)
 
 root.mainloop()
