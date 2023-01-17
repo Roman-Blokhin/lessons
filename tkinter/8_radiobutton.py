@@ -2,6 +2,15 @@
 
 from tkinter import *
 
+# ---------------------------------------------------------------------
+
+# 16. создаем словарь - ключ:значение, чтобы укоротить нашу функцию и profession radiobattons
+
+professions = {
+    7: 'Воин',
+    8: 'Маг',
+    9: 'Лучник'
+}
 
 # ---------------------------------------------------------------------
 
@@ -32,16 +41,14 @@ def select_spesies():
     spesies_text.set(f'Вы выбрали расу: {spesies_var}')  # 13. создаем ф строку для передачи текста нашего label
 
 
+# 15. новая функция
+
 def select_profession():
     profession_var = profession.get()
+    # 17. обращаемся к нашему словарю professions по ключу profession_var (цифры)
+    print (professions[profession_var])
+    profession_var = (professions[profession_var]) # 18. выводит в окне название профессии, а не ключ (не цифру)
     profession_text.set(f'Вы выбрали профессию: {profession_var}')
-    if profession_var == 7:
-        print('Воин')
-    elif profession_var == 8:
-        print('Маг')
-    elif profession_var == 9:
-        print('Лучник')
-
 
 # ---------------------------------------------------------------------
 
@@ -62,6 +69,7 @@ spesies = IntVar()
 # 11. создаем переменную, чтобы вывести текст в наше окно касательно расы
 spesies_text = StringVar()
 
+# 14. новые переменные
 profession = IntVar()
 profession_text = StringVar()
 
