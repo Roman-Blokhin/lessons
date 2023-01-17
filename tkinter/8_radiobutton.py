@@ -19,11 +19,11 @@ def select_level():
     level = level_var.get()
     level_text.set(f'Вы выбрали {level} уровень')  # 8. создаем ф строку для передачи текста нашего label
     if level == 1:
-        print('Easy')
+        print('Уровень сложности: Easy')
     elif level == 2:
-        print('Middle')
+        print('Уровень сложности: Middle')
     elif level == 3:
-        print('Hard')
+        print('Уровень сложности: Hard')
 
 
 # 11. создаем функцию для вывода информации в нашем окне, а также консоли касательно расы
@@ -31,13 +31,13 @@ def select_spesies():
     spesies_var = spesies.get()
     if spesies_var == 4:
         spesies_var = 'Эльф'  # 12. присваиваем числовой переменной текстовое значение для будущей ф строки
-        print('Эльф')
+        print('Раса: ', spesies_var)
     elif spesies_var == 5:
         spesies_var = 'Орк'
-        print('Орк')
+        print('Раса: ', spesies_var)
     elif spesies_var == 6:
         spesies_var = 'Человек'
-        print('Человек')
+        print('Раса: ', spesies_var)
     spesies_text.set(f'Вы выбрали расу: {spesies_var}')  # 13. создаем ф строку для передачи текста нашего label
 
 
@@ -46,7 +46,7 @@ def select_spesies():
 def select_profession():
     profession_var = profession.get()
     # 17. обращаемся к нашему словарю professions по ключу profession_var (цифры)
-    print (professions[profession_var])
+    print ('Профессия: ', professions[profession_var])
     profession_var = (professions[profession_var]) # 18. выводит в окне название профессии, а не ключ (не цифру)
     profession_text.set(f'Вы выбрали профессию: {profession_var}')
 
