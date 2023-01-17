@@ -18,13 +18,17 @@ def select_level():
 # 11. создаем функцию для вывода информации в нашем окне, а также консоли касательно расы
 def select_spesies():
     spesies_var = spesies.get()
-    spesies_text.set(f'Вы выбрали расу: {spesies_var}')  # 8. создаем ф строку для передачи текста нашего label
     if spesies_var == 4:
+        spesies_var = 'Эльф' # 12. присваиваем числовой переменной текстовое значение для будущей ф строки
         print('Эльф')
     elif spesies_var == 5:
+        spesies_var = 'Орк'
         print('Орк')
     elif spesies_var == 6:
+        spesies_var = 'Человек'
         print('Человек')
+    spesies_text.set(f'Вы выбрали расу: {spesies_var}')  # 13. создаем ф строку для передачи текста нашего label
+
 
 
 root = Tk()
