@@ -2,15 +2,18 @@
 
 from tkinter import *
 
+
 # 5. создаем функцию для вывода информации в нашем окне, а также консоли
-def select_level ():
-    level = level_var.get ()
+def select_level():
+    level = level_var.get()
+    level_text.set(f'Вы выбрали {level} уровень')  # создаем ф строку для передачи текста нашего label
     if level == 1:
-        print ('Easy')
+        print('Easy')
     elif level == 2:
-        print ('Middle')
+        print('Middle')
     elif level == 3:
-        print ('Hard')
+        print('Hard')
+
 
 root = Tk()
 root.title('Radiobutton')
@@ -19,17 +22,22 @@ root.config(bg='pink')
 
 # 2. создаем числовую переменную и привязываем ее ко всем нашим radiobuttons
 level_var = IntVar()
+# 7. создаем переменную, чтобы вывести текст в наше окно
+level_text = StringVar()
 
 # 1. создаем Label и Radiobuttons
 Label(text='Выберите уровень сложности: ', bg='pink', font=('Arial', 15)).grid(row=0, column=0, columnspan=3)
 
 # 3. добавляем атрибут value, чтобы мы могли присвоить значение нашим кнопкам, и они стали нажиматься
 # 4. создаем команду, чтобы понять, какая кнопка нажата
-Radiobutton(text='Easy', bg='pink', font=('Arial', 15), variable=level_var, value=1, command=select_level)\
+Radiobutton(text='Easy', bg='pink', font=('Arial', 15), variable=level_var, value=1, command=select_level) \
     .grid(row=1, column=0)
-Radiobutton(text='Middle', bg='pink', font=('Arial', 15), variable=level_var, value=2, command=select_level)\
+Radiobutton(text='Middle', bg='pink', font=('Arial', 15), variable=level_var, value=2, command=select_level) \
     .grid(row=1, column=1)
-Radiobutton(text='Hard', bg='pink', font=('Arial', 15), variable=level_var, value=3, command=select_level)\
+Radiobutton(text='Hard', bg='pink', font=('Arial', 15), variable=level_var, value=3, command=select_level) \
     .grid(row=1, column=2)
+
+# 6. создаем Label, который будет выводить сообщение после выбора уровня сложности с атрибутом textvariable
+Label(bg='pink', textvariable=level_text).grid(row=2, column=0, columnspan=3, stick='w')
 
 root.mainloop()
