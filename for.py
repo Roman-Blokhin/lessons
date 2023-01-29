@@ -9,3 +9,9 @@ for i in zoo:
     print ('Сейчас система видит животное:', i)
 print ('Животных в зоопарке:', count_animals)
 print ('Букв в названии животных:', letters_count)
+
+print ('-------------------------------------')
+
+# функция enumerate позволяет пронумеровать наши элементы списка
+for j, animal in enumerate (zoo):
+    print (j, animal)
