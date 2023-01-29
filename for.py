@@ -1,3 +1,5 @@
+# ЦИКЛ FOR ПОЗВОЛЯЕТ ПРОЙТИСЬ ПО ВСЕМ ЗНАЧЕНИЯМ СЛОВАРЯ, СПИСКА, МНОЖЕСТВА ИЛИ КОРТЕЖИ
+
 zoo = ['Кошка', 'Собака', 'Слон', 'Бегемотик', 'Удав', 'Птерадактиль']
 count_animals = 0
 letters_count = 0
@@ -40,4 +42,23 @@ for animal in zoo_dict:
     mass = zoo_dict [animal]
     total_mass += mass
     print ('Взвешивается:', animal, '-', mass)
+print ('Общая масса животных:', total_mass)
+
+print('-------------------------------------')
+
+# можно упростить
+
+total_mass = 0
+for animal, mass in zoo_dict.items():
+    total_mass += mass
+    print ('Взвешивается:', animal, '-', mass)
+print ('Общая масса животных:', total_mass)
+
+print('-------------------------------------')
+
+# если нужно вывести только ключи, без значений, пишем так:
+total_mass = 0
+for mass in zoo_dict.values():
+    total_mass += mass
+    print (mass)
 print ('Общая масса животных:', total_mass)
