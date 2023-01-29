@@ -15,3 +15,12 @@ print ('-------------------------------------')
 # функция enumerate позволяет пронумеровать наши элементы списка
 for j, animal in enumerate (zoo):
     print (j, animal)
+
+print('-------------------------------------')
+
+# можно делать цикл в цикле
+for animal in zoo:
+    for char in animal:
+        if animal == 'Кошка':
+            continue
+        print (char)
