@@ -24,3 +24,20 @@ for animal in zoo:
         if animal == 'Кошка':
             continue
         print (char)
+
+print('-------------------------------------')
+
+# цикл может проходить и по словарям
+zoo_dict = {
+    'Кошка': 25,
+    'Собака': 15,
+    'Лошадь': 525,
+    'Слон': 1225,
+}
+
+total_mass = 0
+for animal in zoo_dict:
+    mass = zoo_dict [animal]
+    total_mass += mass
+    print ('Взвешивается:', animal, '-', mass)
+print ('Общая масса животных:', total_mass)
