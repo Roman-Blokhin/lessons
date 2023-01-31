@@ -118,6 +118,42 @@ print (game.__doc__)
 
 print ('---------------------------')
 
+# параметры функции можно выводить таким образом
+
+def zoo (number_1, number_2):
+    print ('Сегодня у нас такие параметры:', str (number_1) + ',', number_2)
+    return number_1 * number_2
+
+print (zoo (number_1 = 7, number_2 = 9))
+print (zoo (number_1 = 'привет! ', number_2 = 9))
+
+print ('---------------------------')
+
+# выпускаем динозавра на свободу
+
+def zoo (some_list): # создаем функцию, обращаемся к списку
+    dino_free = 'Теранозавр' in some_list # задаем параметры условия
+    if dino_free:
+        some_list.remove ('Теранозавр') # указываем, что удаляем
+        print ('Теранозавр найден, открыть клетку!')
+    else:
+        print ('Больше теранозавров нет...')
+    return dino_free # возвращаем, найден ли теранозавр или нет. видно через debug
+
+zoopark = ['Слон', 'Теранозавр', 'Кинг-Конг', 'Бэтмэн', 'Поросенок', 'Лошадь', 'Теранозавр']
+
+print (zoopark)
+
+zoo (some_list = zoopark) # можно написать так
+print (zoopark)
+
+zoo (zoopark) # а можно написать так
+print (zoopark)
+
+zoo (zoopark)
+print (zoopark)
+
+print ('---------------------------')
 
 
 
