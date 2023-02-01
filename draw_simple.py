@@ -15,8 +15,15 @@ for _ in range (3):
     # color = sd.random_color() -  дает рандомное значение цвета нашей окружности
     sd.circle (center_position = point_2, color = sd.random_color(), radius = radius, width = 4)
 
+# делаем новую функцию
+def bubble (point, step):
+    radius = 50
+    for _ in range (3):
+        radius += step
+        sd.circle (center_position = point_2, color = sd.random_color(), radius = radius, width = 6)
+point_2 = sd.get_point (100, 150)
+bubble (point = point, step = 10)
 
 
 
-
-sd.pause()
+sd.pause() # не закрывают окно
