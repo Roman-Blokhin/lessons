@@ -1,5 +1,6 @@
 """ИЗУЧАЕМ БИБЛИОТЕКУ SIMPLE-DRAW
 не поддерживается в python -V > 3.10"""
+import random
 
 import simple_draw as sd
 
@@ -45,6 +46,17 @@ for y in range (50, 151, 50): # задаем координату y
     for x in range (650, 950, 30):
         point = sd.get_point(x, y) # добавляем координату y
         bubble(point=point, step=5)
+
+# делаем 100 шариков в рандомных местах
+def bubble (point, step):
+    radius = 5
+    radius += step
+    sd.circle (center_position = point, color = sd.random_color(), radius = radius, width = 1)
+
+for _ in range (100):
+    point = sd.random_point() # добавляем координату y
+    step = random.randint (1, 20) # добавляем разный размер колец
+    bubble(point=point, step=step) # меняем шаг на наш рандом
 
 
 
