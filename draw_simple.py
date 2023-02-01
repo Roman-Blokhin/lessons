@@ -34,6 +34,18 @@ for x in range (50, 550, 50): # задаем параметры шага соз�
     point = sd.get_point(x, 400) # передаем координату шага
     bubble(point=point, step=5)
 
+# делаем 10 пузырьков в 3 ряда
+def bubble (point, step):
+    radius = 10
+    for _ in range (2):
+        radius += step
+        sd.circle (center_position = point, color = sd.random_color(), radius = radius, width = 5)
+
+for y in range (50, 151, 50): # задаем координату y
+    for x in range (650, 950, 30):
+        point = sd.get_point(x, y) # добавляем координату y
+        bubble(point=point, step=5)
+
 
 
 sd.pause() # не закрывают окно
